@@ -1,4 +1,3 @@
-const { request } = require("express");
 const serviciosUrl = require("../config/urls");
 
 const { obtenerDatosService } = require('../services/autentificacion.service.js');
