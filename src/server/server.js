@@ -4,6 +4,7 @@ const cors = require('cors');
 const helmet = require('helmet');
 const compression = require('compression');
 const { APP_NAME, APP_PORT } = require('../config/enviroment');
+const appRouter = require('../routers/app.router');
 
 class Server {
     _app;
@@ -22,7 +23,8 @@ class Server {
             .use(cors())
             .use(helmet())
             .use(compression())
-            // .use()
+            
+            .use('/api',appRouter);
     }
 
     start(){
