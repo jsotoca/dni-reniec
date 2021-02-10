@@ -8,11 +8,9 @@ const obtenerDatos = async(req, res) => {
         const { servicio, identificador } = req.params;
         const url = `${serviciosUrl[servicio]}${identificador}`;
         const datos = await obtenerDatosService(url);
-        res.status(200)
-           .json({datos});
+        res.json({datos});
     } catch (error) {
-        res.status(500)
-           .json(error);
+        res.json(error);
     }
 }
 

@@ -1,11 +1,16 @@
 const fetch = require('node-fetch');
+const https = require('https');
 
 const obtenerDatosService = async(url) => {
-    try {
-        return await fetch(url);
-    } catch (error) {
-        console.log(error);
-    }
+    return new Promise((resolve, reject) => {
+        const httpsAgent = new https.Agent({
+            rejectUnauthorized: false,
+        });
+        fetch(url, { agent: httpsAgent })
+            .then(res => res.json())
+            .then(json => resolve(json))
+            .catch(err => reject(err))
+    });
 }
 
 module.exports = { obtenerDatosService }
