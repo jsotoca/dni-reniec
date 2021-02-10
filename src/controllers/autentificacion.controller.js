@@ -1,7 +1,7 @@
 const { request } = require("express");
 const serviciosUrl = require("../config/urls");
 
-const { obtenerDatosService } = request('../services/autentificacion.service.js');
+const { obtenerDatosService } = require('../services/autentificacion.service.js');
 
 const obtenerDatos = async(req, res) => {
     try {
